@@ -11,7 +11,6 @@ public class Zoologico {
 	public Zoologico() {
 		this.nombre = null;
 		this.ubicacion = null;
-		this.zonas = null;
 	}
 	public void agregarZonas(Zona zona){
 		zonas.add(zona);

@@ -13,7 +13,6 @@ public class Zona {
 	public Zona() {
 		this.nombre = null;
 		this.zoo = null;
-		this.animales = null;
 	}
 	public void agregarAnimales(Animal animal) {
 		this.animales.add(animal);
