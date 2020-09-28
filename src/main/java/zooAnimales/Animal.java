@@ -7,13 +7,12 @@ public class Animal {
 	private int edad = 0 ;
 	private String habitat = "";
 	private String genero = "";
-	private Zona zona = new Zona();
-	public Animal(String nombre,int edad,String habitat,String genero,Zona zona) {
+	private Zona zona = null;
+	public Animal(String nombre,int edad,String habitat,String genero) {
 		this.nombre = nombre;
 		this.edad = edad;
 		this.genero = genero;
 		this.habitat = habitat;
-		this.zona = zona;
 		totalAnimales++;
 	}
 	public Animal() {
@@ -22,11 +21,18 @@ public class Animal {
 	public String movimiento() {
 		return "desplazarse";
 	}
-	public String totalPorTipo() {
+	public static String totalPorTipo() {
 		return String.format("Mamiferos: %d%nAves: %d%nReptiles: %d%nPeces: %d%nAnfibios: %d", Mamifero.cantidadMamiferos(),Ave.cantidadAves(),Reptil.cantidadReptiles(),Pez.cantidadPeces(),Anfibio.cantidadAnfibios());
 	}
 	public String toString() {
-		return String.format("Mi nombre es %s, tengo una edad de %d, habito en %s y mi genero es %s, la zona en la que me ubico es %s, en el %s", this.nombre, this.edad,this.habitat,this.genero, this.zona.getNombre(), this.zona.getZoo().getNombre());
+		if(zona != null) {
+			return String.format("Mi nombre es %s, tengo una edad de %d, habito en %s y mi genero es %s, la zona en la que me ubico es %s, en el %s", this.nombre, this.edad,this.habitat,this.genero, this.zona.getNombre(), this.zona.getZoo().getNombre());
+
+		}
+		else {
+			return String.format("Mi nombre es %s, tengo una edad de %d, habito en %s y mi genero es %s", this.nombre, this.edad,this.habitat,this.genero);
+
+		}
 	}
 	public String getNombre() {
 		return this.nombre;
