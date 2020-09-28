@@ -9,13 +9,19 @@ public class Zoologico {
 		this.ubicacion = ubicacion;
 	}
 	public Zoologico() {
-		
+		this.nombre = null;
+		this.ubicacion = null;
+		this.zonas = null;
 	}
 	public void agregarZonas(Zona zona){
 		zonas.add(zona);
 	}
 	public int cantidadTotalAnimales() {
-		return zonas.size();
+		int total = 0;
+		for (Zona zona :zonas ) {
+			total = total + zona.cantidadAnimales();
+		}
+		return total;
 	}
 	public String getNombre() {
 		return this.nombre;
